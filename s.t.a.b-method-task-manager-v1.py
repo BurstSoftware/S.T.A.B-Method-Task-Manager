@@ -5,7 +5,7 @@ st.set_page_config(layout="wide")
 
 # Sidebar for page navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.selectbox("Select Page", ["Search Optimization", "Shopping"])
+page = st.sidebar.selectbox("Select Page", ["Search Optimization", "Shopping", "Performance Max"])
 
 # Function to display tasks in a table-like format
 def display_tasks(tasks_data, page_title):
@@ -57,7 +57,7 @@ def display_tasks(tasks_data, page_title):
     if st.button("Export Notes", key=f"export_{page_title}"):
         st.write("Export functionality coming soon!")
 
-# Data for Search Optimization page (from previous content)
+# Data for Search Optimization page
 search_optimization_data = [
     {
         "section": "Spending & Segmentation",
@@ -347,7 +347,7 @@ search_optimization_data = [
     }
 ]
 
-# Data for Shopping page (new content)
+# Data for Shopping page
 shopping_data = [
     {
         "section": "Spending & Segmentation",
@@ -649,8 +649,243 @@ shopping_data = [
     }
 ]
 
+# Data for Performance Max page
+performance_max_data = [
+    {
+        "section": "Spending & Segmentation",
+        "color": "#90EE90",  # Light green
+        "tasks": [
+            {
+                "task": "1. Review campaign spend vs results",
+                "subtasks": [
+                    {
+                        "description": "a. Are there any campaigns that are ready to scale? (good conversion metrics with a low search impression share < 65%)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "a. Are there any campaigns that need extra optimisations? (bad conversion metrics ie: no conversions, high CPA, low ROAS) Make a note and complete further optimisations",
+                        "frequency": {"Every 72 Hours": False, "Weekly": True, "Monthly": False, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "2. Review asset groups spend vs results",
+                "subtasks": [
+                    {
+                        "description": "a. Are there any asset groups that need to be moved into a separate campaign? (good conversion metrics & but low spend)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "b. Are there any asset groups that need extra optimisations? (bad conversion metrics ie: no conversions, high CPA, low ROAS) Make a note and complete further optimisations",
+                        "frequency": {"Every 72 Hours": False, "Weekly": True, "Monthly": False, "90 Days": False}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Targeting",
+        "color": "#FF6347",  # Tomato red
+        "tasks": [
+            {
+                "task": "3. Search Themes",
+                "subtasks": [
+                    {
+                        "description": "a. Review your search terms insights report (Insights > Search term insights)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False},
+                        "additional_info": [
+                            "> Add brand exclusions to reduce spending on any unwanted spending on brand or competitor brand names",
+                            "> Add URL exclusions if unrelated product or service pages are being targeted",
+                            "NOTE: in Q4 of 2024 you will be able to also add negative KWs to Performance Max"
+                        ]
+                    }
+                ]
+            },
+            {
+                "task": "4. Location based results",
+                "subtasks": [
+                    {
+                        "description": "a. Review location performance and add exclusions (if required)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "b. Check to see if there are any searches from non-targeted locations (and exclude locations)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "5. Placement results",
+                "subtasks": [
+                    {
+                        "description": "a. Review your 'performance max campaigns placement' report by going to Insights > Report Editor",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False},
+                        "additional_info": [
+                            "> If showing ads to unrelated websites & apps add these to exclusions"
+                        ]
+                    }
+                ]
+            },
+            {
+                "task": "6. Product & Product Title Review (NOTE: only for Performance Max campaigns with a shopping feed)",
+                "subtasks": [
+                    {
+                        "description": "a. Identify Products that are under performing, and make the decision to either exclude or focus on with further optimisations.",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False},
+                        "additional_info": [
+                            "NOTE: to see optimisations for your Products & Shopping Feed go to [Shopping] Sheet and follow steps 4 - 7"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Ads & Landing Pages",
+        "color": "#ADD8E6",  # Light blue
+        "tasks": [
+            {
+                "task": "11. Review your Ad Assets in each Asset Group",
+                "subtasks": [
+                    {
+                        "description": "a. Review your ad assets and replace any assets with a 'low' score, including:",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False},
+                        "additional_info": [
+                            "> headlines",
+                            "> descriptions",
+                            "> long descriptions",
+                            "> Images",
+                            "> Videos"
+                        ]
+                    }
+                ]
+            },
+            {
+                "task": "12. Review the status of your Asset Group",
+                "subtasks": [
+                    {
+                        "description": "a. Check to see if any asset groups have status warnings like (limited) if these appear make required changes",
+                        "frequency": {"Every 72 Hours": False, "Weekly": True, "Monthly": False, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "13. Ensure you have active Ad Assets (currently no data is available in Google Ads)",
+                "subtasks": [
+                    {
+                        "description": "a. Make sure you have active",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False},
+                        "additional_info": [
+                            "> sitelink extensions",
+                            "> callout extensions",
+                            "> structured snippet extension",
+                            "> call extension (if relevant)",
+                            "> lead form extension (if relevant)",
+                            "> location extensions (GMB linking) (if relevant)",
+                            "> affiliate location extensions (if relevant)",
+                            "> price extension (if relevant)",
+                            "> promotion extension (if relevant)",
+                            "> image extensions"
+                        ]
+                    }
+                ]
+            },
+            {
+                "task": "14. Landing Page Review",
+                "subtasks": [
+                    {
+                        "description": "a. If you are sending ads to different landing/product pages review your Conversion rates by landing pages. If any landing pages have a significantly lower conversion rate look at updating/changing the landing pages",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True}
+                    },
+                    {
+                        "description": "b. Review your product pages:",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True},
+                        "additional_info": [
+                            "> Do your product pages have price transparency (clear price & shipping costs)",
+                            "> Do your product pages have clear policies for returns & delivery",
+                            "> Do your product pages have a sizing guide",
+                            "> Do your product pages include credibility markers like testimonials & product reviews"
+                        ]
+                    },
+                    {
+                        "description": "c. Review landing page load time https://pagespeed.web.dev/",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Bidding",
+        "color": "#FFD700",  # Gold
+        "tasks": [
+            {
+                "task": "15. Campaign Bidding Review",
+                "subtasks": [
+                    {
+                        "description": "a. Is there enough Conversion Data to add in a tROAS or tCPA? (check below)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True},
+                        "additional_info": [
+                            "> Is there an average of at least 1 primary conversion per day over the past 30 days?",
+                            "> Have weekly conversions been increasing each week for the past 4-6 weeks?"
+                        ]
+                    },
+                    {
+                        "description": "b. If you are using a tCPA / tROAS, is the current campaign bidding target still the best option? Or is it limiting performance? (check these metrics to see if you need to adjust your target)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": True},
+                        "additional_info": [
+                            "> Is there a drop in total conversions / conversion value",
+                            "> Has the campaign spend reduced significantly",
+                            "> Are the impressions dropping too much",
+                            "> When using the Avg. Target CPA/ROAS diagnostic tool are you seeing an improvement in your CPA/ROAS?",
+                            "> If your impressions are decreasing significantly can this be explained by an increase in CTR, Conv % or Avg CPC"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Quality Control Checks",
+        "color": "#D3D3D3",  # Light gray
+        "tasks": [
+            {
+                "task": "16. Quality Control Checks",
+                "subtasks": [
+                    {
+                        "description": "a. Are all conversion actions working",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "b. Is your budget on track",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "c. Is your payment method working",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "d. Are there any active 'auto apply' recommendations in the account",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "e. Are there any notifications from Google that need to be actioned",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "e. Are there any notifications from GMC that need to be actioned",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    }
+                ]
+            }
+        ]
+    }
+]
+
 # Display the selected page
 if page == "Search Optimization":
     display_tasks(search_optimization_data, "Search Optimization")
 elif page == "Shopping":
     display_tasks(shopping_data, "Shopping")
+elif page == "Performance Max":
+    display_tasks(performance_max_data, "Performance Max")
