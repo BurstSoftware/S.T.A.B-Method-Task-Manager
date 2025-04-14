@@ -1,8 +1,8 @@
 import streamlit as st
 
 # Set page title and layout
-st.set_page_config(page_title="S.T.A.B Method Task Manager", layout="wide")
-st.title("S.T.A.B Method Task Manager")
+st.set_page_config(page_title="Search Optimization", layout="wide")
+st.title("Search Optimization")
 
 # Define the data structure for the S.T.A.B Method tasks (full list)
 tasks_data = [
@@ -177,7 +177,7 @@ tasks_data = [
     },
     {
         "section": "Ads & Landing Pages",
-        "color": "#ADD8E6",  # Light blue (assuming a new color for this section)
+        "color": "#ADD8E6",  # Light blue
         "tasks": [
             {
                 "task": "12. Review your current split test results for Ads by Ad Groups",
@@ -235,7 +235,7 @@ tasks_data = [
     },
     {
         "section": "Bidding",
-        "color": "#FFD700",  # Gold (assuming a new color for this section)
+        "color": "#FFD700",  # Gold
         "tasks": [
             {
                 "task": "16. Campaign Bidding Review",
@@ -263,7 +263,7 @@ tasks_data = [
     },
     {
         "section": "Quality Control Checks",
-        "color": "#D3D3D3",  # Light gray (assuming a new color for this section)
+        "color": "#D3D3D3",  # Light gray
         "tasks": [
             {
                 "task": "17. Quality Control Checks",
