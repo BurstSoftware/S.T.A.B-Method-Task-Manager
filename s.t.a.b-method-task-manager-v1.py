@@ -5,7 +5,7 @@ st.set_page_config(layout="wide")
 
 # Sidebar for page navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.selectbox("Select Page", ["Search Optimization", "Shopping", "Performance Max", "Display", "Demand Gen"])
+page = st.sidebar.selectbox("Select Page", ["Search Optimization", "Shopping", "Performance Max", "Display", "Demand Gen", "Video"])
 
 # Function to display tasks in a table-like format
 def display_tasks(tasks_data, page_title):
@@ -1046,7 +1046,7 @@ display_data = [
                 "subtasks": [
                     {
                         "description": "a. If you are sending ads to different landing/product pages review your Conversion rates by landing pages. If any landing pages have a significantly lower conversion rate look at updating/changing the landing pages",
-                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True}
+"frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True}
                     },
                     {
                         "description": "b. Review landing page load time https://pagespeed.web.dev/",
@@ -1344,6 +1344,239 @@ demand_gen_data = [
     }
 ]
 
+# Data for Video page
+video_data = [
+    {
+        "section": "Spending & Segmentation",
+        "color": "#90EE90",  # Light green
+        "tasks": [
+            {
+                "task": "1. Review campaign spend vs results",
+                "subtasks": [
+                    {
+                        "description": "a. Are there any campaigns that are ready to scale? (good conversion metrics with a low search impression share < 65%)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "a. Are there any campaigns that need extra optimisations? (bad conversion metrics ie: no conversions, high CPA, low ROAS) Make a note and complete further optimisations",
+                        "frequency": {"Every 72 Hours": False, "Weekly": True, "Monthly": False, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "2. Review asset groups spend vs results",
+                "subtasks": [
+                    {
+                        "description": "a. Are there any asset groups that need to be moved into a separate campaign? (good conversion metrics & but low spend)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "b. Are there any ad groups that need extra optimisations? (bad conversion metrics ie: no conversions, high CPA, low ROAS) Make a note and complete further optimisations",
+                        "frequency": {"Every 72 Hours": False, "Weekly": True, "Monthly": False, "90 Days": False}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Targeting",
+        "color": "#FF6347",  # Tomato red
+        "tasks": [
+            {
+                "task": "3. Review Your Content Placements",
+                "subtasks": [
+                    {
+                        "description": "a. Review your 'where ads showed' and",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False},
+                        "additional_info": [
+                            "> add exclusions for any high spending low converting placements",
+                            "> add bid adjustment if not using smart bidding",
+                            "> If showing ads to unrelated placements add these to exclusions"
+                        ]
+                    }
+                ]
+            },
+            {
+                "task": "4. Location based results",
+                "subtasks": [
+                    {
+                        "description": "a. Review location performance and add exclusions (if required)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "b. Check to see if there are any searches from non-targeted locations (and exclude locations)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "5. Device results",
+                "subtasks": [
+                    {
+                        "description": "a. Review device performance and add exclusions or bid optimisations (if required)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "6. Audience Performance",
+                "subtasks": [
+                    {
+                        "description": "a. Review observation audiences and add exclusions (or bid optimisations if not using smart bidding)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "b. If your added audiences are below 80% of traffic check add new audiences",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "7. Demographic Performance",
+                "subtasks": [
+                    {
+                        "description": "a. Review demographics and add exclusions (go to Audiences > 'edit demographics')",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True},
+                        "additional_info": [
+                            "> by age",
+                            "> by income (not available worldwide)"
+                        ]
+                    }
+                ]
+            },
+            {
+                "task": "8. When ads appeared",
+                "subtasks": [
+                    {
+                        "description": "a. Review performance by day of the week and exclude any days with consistent & significant under performance and exclude (if not using smart bidding)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True}
+                    },
+                    {
+                        "description": "a. Review performance by hour of the day and look to increase your budget if your spending is not sufficient for the whole day (or for Ad schedule)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Ads & Landing Pages",
+        "color": "#ADD8E6",  # Light blue
+        "tasks": [
+            {
+                "task": "9. Review your current split test results for Ads by Ad Groups",
+                "subtasks": [
+                    {
+                        "description": "a. Review your split tests in each under performing ad group and pause the ad with a significantly lower CTR & Conversion rate (if not significant allow the test to run for another 30 days)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "b. If you paused an add duplicate the 'winning ad' and make only 1 change so you can start another split test",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "10. Quality Check for your Ads",
+                "subtasks": [
+                    {
+                        "description": "a. Check to see if any ads are disapproved or have a 'rarely shown' warning. If any exist make changes & re-submit ad for review",
+                        "frequency": {"Every 72 Hours": False, "Weekly": True, "Monthly": False, "90 Days": False}
+                    }
+                ]
+            },
+            {
+                "task": "11. Review Video Ad Retention",
+                "subtasks": [
+                    {
+                        "description": "a. Review your 'video played to' metric, to find out the FROM this data below plan & record new videos with updated: introductions, hooks & call to actions",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False},
+                        "additional_info": [
+                            "> which videos have the longest watch time above 75%",
+                            "> which videos have the lowest retention past 25%",
+                            "> which videos the highest CTR & Conversion rates"
+                        ]
+                    }
+                ]
+            },
+            {
+                "task": "12. Landing Page Review",
+                "subtasks": [
+                    {
+                        "description": "a. If you are sending ads to different landing/product pages review your Conversion rates by landing pages. If any landing pages have a significantly lower conversion rate look at updating/changing the landing pages",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True}
+                    },
+                    {
+                        "description": "b. Review landing page load time https://pagespeed.web.dev/",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Bidding",
+        "color": "#FFD700",  # Gold
+        "tasks": [
+            {
+                "task": "13. Campaign Bidding Review (if targeting conversions)",
+                "subtasks": [
+                    {
+                        "description": "a. Is there enough Conversion Data to add in a tROAS or tCPA? (check below)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": False, "90 Days": True},
+                        "additional_info": [
+                            "> Is there an average of at least 1 primary conversion per day over the past 30 days?",
+                            "> Have weekly conversions been increasing each week for the past 4-6 weeks?"
+                        ]
+                    },
+                    {
+                        "description": "b. If you are using a tCPA / tROAS, is the current campaign bidding target still the best option? Or is it limiting performance? (check these metrics to see if you need to adjust your target)",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": True},
+                        "additional_info": [
+                            "> Is there a drop in total conversions / conversion value",
+                            "> Has the campaign spend reduced significantly",
+                            "> Are the impressions dropping too much",
+                            "> When using the Avg. Target CPA/ROAS diagnostic tool are you seeing an improvement in your CPA/ROAS?",
+                            "> If your impressions are decreasing significantly can this be explained by an increase in CTR, Conv % or Avg CPC"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Quality Control Checks",
+        "color": "#D3D3D3",  # Light gray
+        "tasks": [
+            {
+                "task": "14. Quality Control Checks",
+                "subtasks": [
+                    {
+                        "description": "a. Are all conversion actions working",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "b. Is your budget on track",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "c. Is your payment method working",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "d. Are there any active 'auto apply' recommendations in the account",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    },
+                    {
+                        "description": "e. Are there any notifications from Google that need to be actioned",
+                        "frequency": {"Every 72 Hours": False, "Weekly": False, "Monthly": True, "90 Days": False}
+                    }
+                ]
+            }
+        ]
+    }
+]
+
 # Display the selected page
 if page == "Search Optimization":
     display_tasks(search_optimization_data, "Search Optimization")
@@ -1355,3 +1588,5 @@ elif page == "Display":
     display_tasks(display_data, "Display")
 elif page == "Demand Gen":
     display_tasks(demand_gen_data, "Demand Gen")
+elif page == "Video":
+    display_tasks(video_data, "Video")
